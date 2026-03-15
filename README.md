@@ -1,4 +1,6 @@
-<h1 align="center">FlowTab</h1>
+<p align="center">
+  <img src="FlowTab_combine.png" alt="FlowTab" width="360" />
+</p>
 
 <p align="center">A simple, personalized New Tab page for Chrome and Edge that keeps your data stored locally.</p>
 

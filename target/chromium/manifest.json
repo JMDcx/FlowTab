@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "FlowTab",
   "short_name": "FlowTab",
-  "version": "2.6.0",
+  "version": "0.1.0",
   "description": "A customisable new tab for focus, quick access, and daily flow.",
   "chrome_url_overrides": {
     "newtab": "index.html"

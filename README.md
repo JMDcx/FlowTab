@@ -1,10 +1,8 @@
-<h1 align="center">Tabliss</h1>
+<h1 align="center">FlowTab</h1>
 
-<p align="center">A beautiful, customisable New Tab page for Firefox and Chrome.</p>
+<p align="center">A simple, personalized New Tab page for Chrome and Edge that keeps your data stored locally.</p>
 
-![Tabliss Screenshot](screenshot.png)
-
-<p align="center"><a href="https://tabliss.io">https://tabliss.io</a></p>
+![FlowTab Screenshot](screenshot.png)
 
 ## Usage
 
@@ -12,11 +10,11 @@ Install dependencies with `npm install` before running the following scripts.
 
 - `npm run dev[:target]` Local development server
 - `npm run build[:target]` Production build
-- `npm run translations` Manage translation files
 
 To develop with external services you will additionally need to signup for your own API keys
 and enter them into your `.env` file. Get started by copying the example provided `cp .env.example .env`.
 
-## Translations
+## Acknowledgements
 
-Checkout the guide to [adding translations](TRANSLATING.md).
+FlowTab is based on the excellent [Tabliss](https://github.com/joelshepherd/tabliss) project.
+Many thanks to its original author and contributors for their work and inspiration.

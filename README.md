@@ -1,8 +1,10 @@
-<p align="center">
+<p align="center" style="margin: 0;">
   <img src="FlowTab_combine.png" alt="FlowTab" width="360" />
 </p>
 
-<p align="center">A simple, personalized New Tab page for Chrome and Edge that keeps your data stored locally.</p>
+<p align="center" style="margin: 0.35rem 0 1rem;">
+  A simple, personalized New Tab page for Chrome and Edge that keeps your data stored locally.
+</p>
 
 ![FlowTab Screenshot](screenshot.png)
 

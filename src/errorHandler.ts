@@ -1,16 +1,22 @@
 import { init, captureException, setTag } from "@sentry/browser";
 
+const sentryEnabled = !DEV && Boolean(SENTRY_DSN);
+
 export function register(): void {
+  if (!sentryEnabled) return;
+
   init({
     autoSessionTracking: false, // Wtf sentry
-    dsn: "https://2e0e75c7477c4c3e9572ee97241e569c@o113629.ingest.sentry.io/250221",
-    enabled: !DEV,
+    dsn: SENTRY_DSN,
+    enabled: sentryEnabled,
     release: VERSION,
   });
   setTag("target", BUILD_TARGET);
 }
 
 export function capture(error: Error): void {
+  if (!sentryEnabled) return;
+
   if (error.stack) {
     // Replace firefox extension URLs
     error.stack = error.stack.replace(

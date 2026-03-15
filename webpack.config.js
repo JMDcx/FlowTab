@@ -70,6 +70,7 @@ const config = {
     new CopyWebpackPlugin({
       patterns: [
         { from: "target/shared" },
+        { from: "LICENSE.txt", to: "LICENSE.txt" },
         {
           from: `target/${buildTarget}`,
           filter: (path) => !path.includes("index.html"),
@@ -86,6 +87,7 @@ const config = {
       BUILD_TARGET: JSON.stringify(buildTarget),
       DEV: JSON.stringify(!isProduction),
       GIPHY_API_KEY: JSON.stringify(process.env.GIPHY_API_KEY),
+      SENTRY_DSN: JSON.stringify(process.env.SENTRY_DSN || ""),
       VERSION: JSON.stringify(version),
       UNSPLASH_API_KEY: JSON.stringify(process.env.UNSPLASH_API_KEY),
     }),

@@ -17,6 +17,7 @@ Install dependencies with `npm install` before running the following scripts.
 
 To develop with external services you will additionally need to signup for your own API keys
 and enter them into your `.env` file. Get started by copying the example provided `cp .env.example .env`.
+Error reporting is disabled by default. If you want to enable Sentry for your own build, set `SENTRY_DSN` in `.env`.
 
 ## Acknowledgements
 

@@ -4,6 +4,7 @@ declare global {
   const BUILD_TARGET: "chromium" | "firefox" | "web";
   const DEV: boolean;
   const GIPHY_API_KEY: string;
+  const SENTRY_DSN: string;
   const UNSPLASH_API_KEY: string;
   const VERSION: string;
 

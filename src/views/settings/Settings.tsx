@@ -3,7 +3,6 @@ import { FormattedMessage } from "react-intl";
 import { UiContext } from "../../contexts/ui";
 import { exportStore, importStore, resetStore } from "../../db/action";
 import { useKeyPress } from "../../hooks";
-import { Icon } from "../shared";
 import Logo from "../shared/Logo";
 import Background from "./Background";
 import "./Settings.sass";
@@ -99,41 +98,6 @@ const Settings: React.FC = () => {
           This FlowTab build stores settings locally in your browser profile.
           Use export and import to move your setup to another device or profile.
         </p>
-        <div style={{ textAlign: "center" }} className="Widget">
-          <h4>Support FlowTab</h4>
-          <p>
-            <a
-              href="https://www.paypal.com/donate/?hosted_button_id=FK7VRWS9A2EW4"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button button--primary"
-              title="I do love coffee"
-            >
-              <Icon name="coffee" /> Donate a coffee 😍
-            </a>
-          </p>
-          <p>
-            <a href="https://tabliss.io/" target="_blank">
-              <Icon name="globe" /> FlowTab Website
-            </a>
-            &nbsp;&nbsp;
-            <a
-              href="https://twitter.com/tabliss"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <Icon name="twitter" /> Twitter
-            </a>
-            &nbsp;&nbsp;
-            <a
-              href="https://github.com/joelshepherd/tabliss"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <Icon name="github" /> FlowTab GitHub
-            </a>
-          </p>
-        </div>
 
         <FormattedMessage
           id="settings.translationCredits"

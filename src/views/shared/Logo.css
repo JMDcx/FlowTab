@@ -1,0 +1,49 @@
+.Logo {
+  margin: 0;
+  align-items: center;
+  display: inline-flex;
+  gap: 0.7rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.Logo-mark {
+  border-radius: 0.9rem;
+  box-shadow: 0 10px 24px rgba(41, 128, 185, 0.18);
+  display: inline-flex;
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+
+.Logo img {
+  display: block;
+  height: 3rem;
+  width: 3rem;
+}
+
+.Logo-wordmark {
+  background: linear-gradient(135deg, #0f6bdc 0%, #22a6f2 45%, #66d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #0f6bdc;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+@media (max-width: 480px) {
+  .Logo {
+    gap: 0.55rem;
+  }
+
+  .Logo img {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .Logo-wordmark {
+    font-size: 1.7rem;
+  }
+}

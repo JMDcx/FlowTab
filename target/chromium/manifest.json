@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "FlowTab",
+  "short_name": "FlowTab",
+  "version": "2.6.0",
+  "description": "A customisable new tab for focus, quick access, and daily flow.",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "icons": {
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "96": "icons/96.png",
+    "128": "icons/128.png"
+  },
+  "permissions": ["storage"]
+}

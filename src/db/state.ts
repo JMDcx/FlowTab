@@ -71,13 +71,21 @@ const initData: State = {
     key: "widget/time",
     order: 0,
     display: {
-      position: "middleCentre",
+      position: "topCentre",
     },
   },
-  "widget/default-greeting": {
-    id: "default-greeting",
-    key: "widget/greeting",
+  "widget/default-search": {
+    id: "default-search",
+    key: "widget/search",
     order: 1,
+    display: {
+      position: "topCentre",
+    },
+  },
+  "widget/default-links": {
+    id: "default-links",
+    key: "widget/links",
+    order: 2,
     display: {
       position: "middleCentre",
     },
@@ -97,7 +105,7 @@ export const cache = DB.init<Record<string, unknown | undefined>>();
 export const dbStorage =
   BUILD_TARGET === "web"
     ? Storage.indexeddb(db, "tabliss/config")
-    : Storage.extension(db, "tabliss/config", "sync");
+    : Storage.extension(db, "tabliss/config", "local");
 
 export const cacheStorage =
   BUILD_TARGET === "firefox"

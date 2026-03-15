@@ -91,6 +91,12 @@ const config = {
     }),
   ],
   devtool: isWeb || !isProduction ? "source-map" : false,
+  devServer: isWeb
+    ? {
+        hot: false,
+        liveReload: true,
+      }
+    : undefined,
   stats: {
     warnings: false,
   },

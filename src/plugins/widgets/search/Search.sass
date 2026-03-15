@@ -1,20 +1,33 @@
 .Search
     display: block
     position: relative
+    width: min(74vw, 620px)
+    margin: 2.2rem auto 0
 
     input
-        background-color: transparent
+        background-color: #fff
         border: 0
+        border-radius: 1.1rem
+        box-shadow: 0 12px 32px rgba(20, 32, 51, 0.18)
+        color: #2f3b4a !important
+        caret-color: #2f3b4a
         font-family: inherit
-        font-size: 1.1em
+        font-size: 1.08rem
+        font-weight: 500
         outline: none
-        padding: 0.15em 0
-        text-align: center
-        text-shadow: inherit
+        padding: 1.05rem 1.5rem
+        text-align: left
+        text-shadow: none
+        transition: box-shadow 160ms ease, transform 160ms ease
+        width: 100%
+
+        &::placeholder
+            color: #8f99a7 !important
+            opacity: 1
+
+        &:focus
+            box-shadow: 0 18px 36px rgba(20, 32, 51, 0.22)
+            transform: translateY(-1px)
 
     > input
-        margin: 1rem 0
-        width: 100%
-        border-bottom-style: solid
-        border-bottom-width: 2px
-
+        margin: 0

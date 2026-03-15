@@ -6,7 +6,6 @@ import { useKeyPress } from "../../hooks";
 import { Icon } from "../shared";
 import Logo from "../shared/Logo";
 import Background from "./Background";
-import Persist from "./Persist";
 import "./Settings.sass";
 import System from "./System";
 import Widgets from "./Widgets";
@@ -89,9 +88,17 @@ const Settings: React.FC = () => {
           <a onClick={handleExport}>export</a> or{" "}
           <a onClick={handleReset}>reset</a> your settings
         </p>
-
-        <Persist />
-
+        <p
+          style={{
+            marginTop: "-1rem",
+            marginBottom: "2rem",
+            maxWidth: "32rem",
+            textAlign: "center",
+          }}
+        >
+          This FlowTab build stores settings locally in your browser profile.
+          Use export and import to move your setup to another device or profile.
+        </p>
         <div style={{ textAlign: "center" }} className="Widget">
           <h4>Support FlowTab</h4>
           <p>

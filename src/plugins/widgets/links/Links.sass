@@ -1,18 +1,368 @@
 .Links
-    column-gap: 1em
-    display: inline-grid
+    align-items: center
+    border-radius: 2rem
+    display: flex
+    flex-direction: column
+    margin: 0 auto
+    max-width: 940px
+    padding: 0.4rem 1.75rem 1rem
+    position: relative
+    width: min(92vw, 940px)
 
-    a
-        display: block
-        margin: 0.25em
+    &--manage
+        background: transparent
+
+    .Links-grid
+        display: grid
+        gap: 1.6rem 1.25rem
+        grid-template-columns: repeat(6, minmax(0, 1fr))
+        justify-items: center
+        min-height: 354px
+        transition: opacity 0.18s ease, transform 0.18s ease
+        width: 100%
+
+        &.is-transitioning
+            opacity: 0.72
+            transform: translateY(4px)
+
+    .Links-pagination
+        display: flex
+        gap: 0.85rem
+        margin-top: 0.8rem
+
+        button
+            background: rgba(255, 255, 255, 0.4)
+            border: none
+            border-radius: 999px
+            cursor: pointer
+            height: 0.7rem
+            padding: 0
+            transition: transform 0.18s ease, background 0.18s ease
+            width: 0.7rem
+
+            &.is-active
+                background: white
+                transform: scale(1.15)
+
+.LinkTile
+    align-items: center
+    background: transparent
+    border: none
+    color: white
+    display: flex
+    flex-direction: column
+    gap: 0.7rem
+    min-width: 4.8rem
+    padding: 0
+    position: relative
+    text-align: center
+    text-decoration: none
+    width: auto
+
+    &:hover
+        text-decoration: none
+
+    &--manage
+        .LinkTile-circle
+            animation: Links-wiggle 0.72s ease-in-out infinite alternate
+            box-shadow: 0 14px 34px rgba(10, 28, 58, 0.3)
+
+    &--add
+        .LinkTile-circle
+            background: rgba(255, 255, 255, 0.08)
+            border: 2px dashed rgba(255, 255, 255, 0.55)
+            color: rgba(255, 255, 255, 0.92)
+
+    .LinkTile-hit
+        align-items: center
+        background: transparent
+        border: none
+        cursor: pointer
+        display: flex
+        justify-content: center
+        padding: 0
+        position: relative
+        text-decoration: none
+
+    .LinkTile-circle
+        align-items: center
+        background: transparent
+        border-radius: 999px
+        display: flex
+        height: 4.8rem
+        justify-content: center
+        overflow: hidden
+        position: relative
+        transition: transform 0.18s ease
+        width: 4.8rem
+
+    .LinkTile-hit:hover .LinkTile-circle
+        transform: translateY(-2px)
+
+    img
+        height: 4.2rem
+        width: 4.2rem
+
+    .LinkTile-fallback
+        color: white
+        font-size: 2.25rem
+        font-weight: 700
+        text-transform: uppercase
+
+    .LinkTile-customIcon
+        background-repeat: no-repeat
+        background-size: cover
+        border-radius: inherit
+        height: 100%
+        inset: 0
+        position: absolute
+        width: 100%
+
+    .LinkTile-label
+        font-size: 0.95rem
+        line-height: 1.2
+        max-width: 7rem
+        overflow: hidden
+        pointer-events: none
+        text-overflow: ellipsis
         white-space: nowrap
 
-        &:hover
-            text-decoration: none
+    .LinkTile-delete
+        align-items: center
+        background: #f84f4f
+        border: none
+        border-radius: 999px
+        color: white
+        cursor: pointer
+        display: flex
+        height: 1.5rem
+        justify-content: center
+        position: absolute
+        right: 0.35rem
+        top: -0.1rem
+        width: 1.5rem
+        z-index: 2
 
-        &:hover
-            .LinkText
-                text-decoration: underline
+    .LinkTile-edit
+        align-items: center
+        background: rgba(9, 20, 40, 0.45)
+        border: 2px dashed rgba(255, 255, 255, 0.78)
+        border-radius: 999px
+        color: white
+        cursor: pointer
+        display: flex
+        height: 2.3rem
+        inset: 1.25rem auto auto 50%
+        justify-content: center
+        position: absolute
+        transform: translateX(-50%)
+        width: 2.3rem
+        z-index: 2
+
+.LinksModal
+    box-sizing: border-box
+    color: #142338
+    display: grid
+    gap: 1rem
+    font-size: 16px
+    line-height: 1.4
+    width: min(92vw, 420px)
+
+    h3
+        text-align: center
+        margin: 0
+        font-size: 1.45rem
+        font-weight: 700
+        padding-left: 30px
+
+
+    label
+        color: #2a3b52
+        display: grid
+        font-size: 0.95rem
+        font-weight: 600
+        gap: 0.45rem
+        text-align: left
+
+    input
+        appearance: none
+        background: #f8fbff
+        border: 1px solid #c8d4e2
+        box-sizing: border-box
+        border-radius: 0.9rem
+        color: #142338
+        font-size: 1rem
+        line-height: 1.2
+        outline: none
+        padding: 0.9rem 1rem
+        width: 100%
+
+        &:focus
+            border-color: #2495f2
+            box-shadow: 0 0 0 4px rgba(36, 149, 242, 0.12)
+
+        &::placeholder
+            color: #90a1b5
+
+    .LinksModal-error
+        color: #d84343
+        font-size: 0.92rem
+        margin: 0
+
+    .LinksModal-sectionTitle
+        justify-self: start
+        color: #2a3b52
+        font-size: 0.95rem
+        font-weight: 600
+        margin: 0
+
+    .LinksModal-iconSection
+        display: grid
+        gap: 0.8rem
+
+    .LinksModal-iconOptions
+        display: flex
+        gap: 1rem
+        justify-content: center
+        width: 100%
+
+    .LinksModal-iconOption
+        align-items: center
+        color: #64758a
+        display: flex
+        flex-direction: column
+        font-size: 0.88rem
+        gap: 0.55rem
+        min-width: 8.5rem
+
+    .LinksModal-iconButton
+        background: transparent
+        border: none
+        cursor: pointer
+        padding: 0
+
+    .LinksModal-iconCircle
+        align-items: center
+        background: #f8fbff
+        border: 1px solid #c8d4e2
+        border-radius: 999px
+        box-sizing: border-box
+        display: flex
+        height: 7.75rem
+        justify-content: center
+        overflow: hidden
+        position: relative
+        width: 7.75rem
 
         img
-            height: 1em
+            height: 5.7rem
+            width: 5.7rem
+
+        &--upload
+            border-style: dashed
+
+    .LinksModal-iconFallback,
+    .LinksModal-iconPlus
+        color: #4b5d74
+        font-size: 3.2rem
+        font-weight: 700
+
+    .LinksModal-iconPreview
+        background-position: 50% 50%
+        background-repeat: no-repeat
+        background-size: cover
+        height: 100%
+        inset: 0
+        position: absolute
+        width: 100%
+
+    .LinksModal-cropControls
+        display: grid
+        gap: 0.85rem
+
+        label
+            gap: 0.35rem
+
+        input[type="range"]
+            box-shadow: none
+            padding: 0
+
+    .LinksModal-resetIcon
+        justify-self: start
+
+    .LinksModal-actions
+        display: flex
+        gap: 0.75rem
+        justify-content: center
+        margin-top: 0.25rem
+        padding-left: 30px
+
+    .button
+        align-items: center
+        appearance: none
+        background: #eef3f8
+        border: 1px solid #d2dde8
+        border-radius: 999px
+        color: #16314f
+        cursor: pointer
+        display: inline-flex
+        font-size: 0.98rem
+        font-weight: 600
+        justify-content: center
+        min-width: 120px
+        padding: 0.82rem 1.35rem
+        transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease
+
+        &:hover
+            box-shadow: 0 10px 24px rgba(21, 49, 79, 0.12)
+            transform: translateY(-1px)
+
+    .button--primary
+        background: linear-gradient(135deg, #1686eb 0%, #4ebaf9 100%)
+        border-color: transparent
+        color: white
+
+    .button--danger
+        background: #ef5350
+        border-color: transparent
+        color: white
+
+.LinksSettings-note
+    color: #5f6f81
+    font-size: 0.95rem
+    line-height: 1.5
+    margin: 0.75rem 0 0
+
+@media (max-width: 900px)
+    .Links
+        width: min(94vw, 700px)
+
+        .Links-grid
+            grid-template-columns: repeat(4, minmax(0, 1fr))
+            min-height: auto
+
+@media (max-width: 560px)
+    .Links
+        padding: 1rem
+
+        .Links-grid
+            grid-template-columns: repeat(3, minmax(0, 1fr))
+            gap: 1rem 0.8rem
+
+    .LinkTile
+        .LinkTile-circle
+            height: 4.2rem
+            width: 4.2rem
+
+        img
+            height: 3.45rem
+            width: 3.45rem
+
+        .LinkTile-label
+            font-size: 0.85rem
+
+@keyframes Links-wiggle
+    0%
+        transform: rotate(-2.2deg)
+    100%
+        transform: rotate(2.2deg)

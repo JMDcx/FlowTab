@@ -1,5 +1,5 @@
 <p align="center" style="margin: 0;">
-  <img src="FlowTab_combine.png" alt="FlowTab" width="560" />
+  <img src="FlowTab_combine.png" alt="FlowTab" width="480" />
 </p>
 
 <p align="center" style="margin: 0.35rem 0 1rem;">

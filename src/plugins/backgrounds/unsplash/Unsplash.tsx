@@ -53,6 +53,10 @@ const Unsplash: React.FC<Props> = ({
   }, [cache]);
 
   const url = item ? buildLink(item.src) : null;
+  const fallbackStyle = {
+    backgroundImage:
+      "linear-gradient(135deg, rgb(32, 44, 62), rgb(76, 161, 175))",
+  };
 
   const go = (amount: number) =>
     cache && cache.items[cache.cursor + amount]
@@ -75,8 +79,8 @@ const Unsplash: React.FC<Props> = ({
     <div className="Unsplash fullscreen">
       <Backdrop
         className="image fullscreen"
-        ready={url !== null}
-        style={{ backgroundImage: url ? `url(${url})` : undefined }}
+        ready
+        style={url ? { backgroundImage: `url(${url})` } : fallbackStyle}
       />
 
       {item ? (

@@ -6,9 +6,13 @@ import { messages } from "./locales";
 
 const IntlProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const locale = useValue(db, "locale");
+  const resolvedLocale = locale in messages ? locale : "en";
 
   return (
-    <ReactIntlProvider locale={locale} messages={messages[locale]}>
+    <ReactIntlProvider
+      locale={resolvedLocale}
+      messages={messages[resolvedLocale]}
+    >
       {children}
     </ReactIntlProvider>
   );

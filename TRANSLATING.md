@@ -1,6 +1,6 @@
 # Adding Translations
 
-This document gives you a step by step guide for how to add your own translations to Tabliss!
+This document gives you a step by step guide for how to add your own translations to FlowTab!
 Translations are currently only available for the main dashboard (not the settings menu).
 
 1. Fork and checkout the repository
@@ -11,6 +11,6 @@ Translations are currently only available for the main dashboard (not the settin
 6. Import your new translations into the `src/locales/locales.ts` file
 7. Finally, add your language to the select dropdown in `src/views/settings/System.tsx`
 8. Commit your updated files
-9. Submit a Pull Request back to the Tabliss repository!
+9. Commit your updated files to the FlowTab repository
 
-You can test your changes at anytime by running a local development build of Tabliss with `npm start`.
+You can test your changes at anytime by running a local development build of FlowTab with `npm run dev`.

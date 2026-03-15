@@ -14,6 +14,10 @@ export const fetchImages = async ({
   featured,
   search,
 }: Config): Promise<Image[]> => {
+  if (!UNSPLASH_API_KEY) {
+    return [];
+  }
+
   const url = "https://api.unsplash.com/photos/random";
   const params = new URLSearchParams();
   const headers = new Headers({
@@ -44,6 +48,10 @@ export const fetchImages = async ({
 
   const res = await fetch(`${url}?${params}`, { headers, cache: "no-cache" });
   const body = await res.json();
+
+  if (!Array.isArray(body)) {
+    return [];
+  }
 
   // TODO: validate types
 

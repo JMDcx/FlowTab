@@ -1,10 +1,13 @@
 import React from "react";
 import "./Logo.css";
-import tablissLogo from "./tabliss.svg";
+import flowTabLogo from "../../../FlowTab.png";
 
 const Logo: React.FC = () => (
   <h1 className="Logo">
-    <i dangerouslySetInnerHTML={{ __html: tablissLogo }} />
+    <span className="Logo-mark">
+      <img src={flowTabLogo} alt="FlowTab" />
+    </span>
+    <span className="Logo-wordmark">FlowTab</span>
   </h1>
 );
 

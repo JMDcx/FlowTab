@@ -13,8 +13,8 @@ import StoreError from "./shared/StoreError";
 const messages = defineMessages({
   pageTitle: {
     id: "app.pageTitle",
-    description: "Page title that Tabliss displays in the title bar.",
-    defaultMessage: "New Tab",
+    description: "Page title that FlowTab displays in the title bar.",
+    defaultMessage: "FlowTab",
   },
 });
 

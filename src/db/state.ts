@@ -71,7 +71,7 @@ const initData: State = {
     key: "widget/time",
     order: 0,
     display: {
-      position: "topCentre",
+      position: "middleCentre",
     },
   },
   "widget/default-search": {
@@ -79,7 +79,7 @@ const initData: State = {
     key: "widget/search",
     order: 1,
     display: {
-      position: "topCentre",
+      position: "middleCentre",
     },
   },
   "widget/default-links": {

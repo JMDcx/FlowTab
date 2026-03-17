@@ -4,7 +4,13 @@ import { defineMessages, useIntl } from "react-intl";
 import { getSuggestions } from "./getSuggestions";
 import Suggestions from "./Suggestions";
 import { Props, defaultData } from "./types";
-import { buildUrl, getSearchUrl, getSuggestUrl } from "./utils";
+import {
+  buildUrl,
+  getSearchUrl,
+  getSuggestUrl,
+  isDirectNavigationInput,
+  normalizeDirectNavigationInput,
+} from "./utils";
 import "./Search.sass";
 
 const messages = defineMessages({
@@ -18,6 +24,15 @@ const messages = defineMessages({
 const Search: FC<Props> = ({ data = defaultData }) => {
   const searchInput = useRef<HTMLInputElement>(null);
   const previousValue = useRef("");
+  const chromeSearch = (
+    globalThis as typeof globalThis & {
+      chrome?: {
+        search?: {
+          query?: (input: { disposition: string; text: string }) => void;
+        };
+      };
+    }
+  ).chrome?.search;
 
   const [active, setActive] = useState<number>();
   const [suggestions, setSuggestions] = useState<string[]>();
@@ -87,9 +102,25 @@ const Search: FC<Props> = ({ data = defaultData }) => {
   };
 
   const search = () => {
-    document.location.assign(
-      buildUrl(searchInput.current!.value, getSearchUrl(data.searchEngine)),
-    );
+    const query = searchInput.current!.value.trim();
+    if (!query) return;
+
+    if (BUILD_TARGET === "chromium" && BUILD_FLAVOR === "chrome") {
+      if (isDirectNavigationInput(query)) {
+        document.location.assign(normalizeDirectNavigationInput(query));
+        return;
+      }
+
+      if (chromeSearch?.query) {
+        chromeSearch.query({
+          disposition: "CURRENT_TAB",
+          text: query,
+        });
+        return;
+      }
+    }
+
+    document.location.assign(buildUrl(query, getSearchUrl(data.searchEngine)));
   };
 
   return (

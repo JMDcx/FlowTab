@@ -9,9 +9,17 @@ const workbox = require("workbox-webpack-plugin");
 const webpack = require("webpack");
 
 const buildTarget = process.env.BUILD_TARGET || "web";
+const buildFlavor =
+  process.env.BUILD_FLAVOR || (buildTarget === "chromium" ? "edge" : "default");
 const isProduction = process.env.NODE_ENV === "production";
 const isWeb = buildTarget === "web";
 const version = require("./package.json").version;
+const outputDir =
+  buildTarget === "chromium"
+    ? buildFlavor === "chrome"
+      ? "chrome-store"
+      : "edge-store"
+    : buildTarget;
 
 const config = {
   entry: {
@@ -19,7 +27,7 @@ const config = {
     main: ["normalize.css", "./src/styles.sass", "./src/main.tsx"],
   },
   output: {
-    path: path.resolve("dist", buildTarget),
+    path: path.resolve("dist", outputDir),
     publicPath: "/",
     filename: isWeb ? "[name].[contenthash:12].js" : "[name].js",
   },
@@ -84,6 +92,7 @@ const config = {
       filename: isWeb ? "[name].[contenthash:12].css" : "[name].css",
     }),
     new webpack.DefinePlugin({
+      BUILD_FLAVOR: JSON.stringify(buildFlavor),
       BUILD_TARGET: JSON.stringify(buildTarget),
       DEV: JSON.stringify(!isProduction),
       GIPHY_API_KEY: JSON.stringify(process.env.GIPHY_API_KEY),

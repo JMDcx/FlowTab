@@ -1,16 +1,22 @@
 import tlds from "tlds";
 import { engines } from "./engines";
 
+export function isDirectNavigationInput(query: string) {
+  return (
+    /^https?:\/\/\w+/.test(query) ||
+    (tlds.some((tld) => query.endsWith(`.${tld}`)) && !query.includes(" "))
+  );
+}
+
+export function normalizeDirectNavigationInput(query: string) {
+  return /^https?:\/\//.test(query) ? query : `https://${query}`;
+}
+
 // TODO: Add unit tests
 export function buildUrl(query: string, engineUrl: string) {
   // See if they have started with a web scheme
-  if (/^https?:\/\/\w+/.test(query)) {
-    return query;
-  }
-
-  // See if they have ended with a valid TLD
-  if (tlds.some((tld) => query.endsWith(`.${tld}`)) && !query.includes(" ")) {
-    return `https://${query}`;
+  if (isDirectNavigationInput(query)) {
+    return normalizeDirectNavigationInput(query);
   }
 
   // Probably searching then

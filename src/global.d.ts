@@ -2,6 +2,7 @@ import type { Browser } from "webextension-polyfill";
 
 declare global {
   const BUILD_TARGET: "chromium" | "firefox" | "web";
+  const BUILD_FLAVOR: "chrome" | "edge" | "default";
   const DEV: boolean;
   const GIPHY_API_KEY: string;
   const SENTRY_DSN: string;
